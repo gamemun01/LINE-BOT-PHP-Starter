@@ -63,12 +63,36 @@ if (!is_null($events['events'])) {
 				// Get replyToken
 				$replyToken = $event['replyToken'];
 				// Build message to reply back
+				$actions = [
+					{
+						'type' => 'postback',
+						'label' => 'Buy',
+						'data' => 'action=action=buy&itemid=123'
+					},
+					{
+						'type' => 'postback',
+						'label' => 'Add to cart',
+						'data' => 'action=action=buy&itemid=123'
+					},
+					{
+						'type' => 'uri',
+						'label' => 'View detail',
+						'uri' => 'http://example.com/page/123'
+					}
+				];
+				$templae = [
+					'type' => 'buttons',
+					'thumbnailImageUrl' => "http://vignette1.wikia.nocookie.net/sanicsource/images/9/97/Doge.jpg",
+					'title' => "Please select",
+					'actions' => $actions
+				];
+				
 				$messages = [
 				  'type' => 'text',
-				  'text' => "Thank for added".$event['type']['source']['userId']
+				  'altText' => "this is a buttons template"
+				  'template' => $templae
 				 ];
 			
-
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
