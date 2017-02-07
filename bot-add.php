@@ -1,6 +1,5 @@
 <?php
 $access_token = 'qWlMPkW5K6I7qvOnt5LevdrH8/u7/tue/IgyEdU4+DwQGGYZz9EUC4I5WqKCCHlxa6jc3hSm/WeehniZKEVS99Vu9wh5kcV687TWucM2yr3mTAR7rqjD2uFbCzW+ionvCnqBcCicrSw5rCw0tPPdywdB04t89/1O/w1cDnyilFU=';
-
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -16,7 +15,6 @@ if (!is_null($events['events'])) {
 				$text = $event['message']['text'];
 				// Get replyToken
 				$replyToken = $event['replyToken'];
-
 				// Build message to reply back
 				$messages = [
 				  'type' => 'text',
@@ -37,7 +35,6 @@ if (!is_null($events['events'])) {
 				];     
 			} 
 			
-
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
@@ -47,7 +44,6 @@ if (!is_null($events['events'])) {
       
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -56,36 +52,15 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-
 			echo $result . "\r\n";
 		} elseif ($event['type'] == 'follow') {
 			// Get text sent
 				// Get replyToken
 				$replyToken = $event['replyToken'];
 				// Build message to reply back
-				$actions = [
-					 {
-						'type': "message",
-						'label': "Yes",
-						'text': "yes"
-					  },
-					  {
-						'type': "message",
-						'label': "No",
-						'text': "no"
-					  }
-				];
-				$template = [
-					'type' => 'buttons',
-					'thumbnailImageUrl' => "http://vignette1.wikia.nocookie.net/sanicsource/images/9/97/Doge.jpg",
-					'title' => "Please select",
-					'actions' => $actions
-				];
-				
 				$messages = [
-				  'type' => 'template',
-				  'altText' => "this is a buttons template"
-				  'template' => $template
+				  'type' => 'text',
+				  'text' => "Thank for added".$event['type']['source']['userId']
 				 ];
 			
 			// Make a POST Request to Messaging API to reply to sender
@@ -97,7 +72,6 @@ if (!is_null($events['events'])) {
       
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
-
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -106,7 +80,6 @@ if (!is_null($events['events'])) {
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 			$result = curl_exec($ch);
 			curl_close($ch);
-
 			echo $result . "\r\n";
 		
 		}
