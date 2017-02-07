@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
           'type' => 'text',
           'text' => "Return message : ".$text
         ];
-      } else if ($event['message']['type'] == 'text') {
+      } elseif ($event['message']['type'] == 'sticker') {
         $sticker = $event['message']['sticker'];
         // Get replyToken
         $replyToken = $event['replyToken'];
