@@ -21,7 +21,7 @@ if (!is_null($events['events'])) {
 				$messages = [
 				  'type' => 'text',
 				  'text' => "Return message : ".$text
-				// ];
+				];
 			} elseif ($event['message']['type'] == 'sticker') {
 				$sticker = $event['message']['sticker'];
 				// Get replyToken
@@ -58,14 +58,17 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
-		}elseif ($event['type'] == 'follow') {
-			$replyToken = $event['replyToken'];
+		} elseif ($event['type'] == 'follow') {
+			// Get text sent
+				// Get replyToken
+				$replyToken = $event['replyToken'];
+				// Build message to reply back
+				$messages = [
+				  'type' => 'text',
+				  'text' => "Thank for added".$event['type']['source']['userId']
+				 ];
+			
 
-			// Build message to reply back
-			$messages = [
-			  'type' => 'text',
-			  'text' => "Thank you for added"
-			];
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
@@ -86,6 +89,7 @@ if (!is_null($events['events'])) {
 			curl_close($ch);
 
 			echo $result . "\r\n";
+		
 		}
 	}
 }
