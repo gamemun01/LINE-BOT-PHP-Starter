@@ -64,23 +64,18 @@ if (!is_null($events['events'])) {
 				$replyToken = $event['replyToken'];
 				// Build message to reply back
 				$actions = [
-					{
-						'type' => 'postback',
-						'label' => 'Buy',
-						'data' => 'action=action=buy&itemid=123'
-					},
-					{
-						'type' => 'postback',
-						'label' => 'Add to cart',
-						'data' => 'action=action=buy&itemid=123'
-					},
-					{
-						'type' => 'uri',
-						'label' => 'View detail',
-						'uri' => 'http://example.com/page/123'
-					}
+					 {
+						'type': "message",
+						'label': "Yes",
+						'text': "yes"
+					  },
+					  {
+						'type': "message",
+						'label': "No",
+						'text': "no"
+					  }
 				];
-				$templae = [
+				$template = [
 					'type' => 'buttons',
 					'thumbnailImageUrl' => "http://vignette1.wikia.nocookie.net/sanicsource/images/9/97/Doge.jpg",
 					'title' => "Please select",
@@ -88,9 +83,9 @@ if (!is_null($events['events'])) {
 				];
 				
 				$messages = [
-				  'type' => 'text',
+				  'type' => 'template',
 				  'altText' => "this is a buttons template"
-				  'template' => $templae
+				  'template' => $template
 				 ];
 			
 			// Make a POST Request to Messaging API to reply to sender
