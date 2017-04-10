@@ -15,30 +15,11 @@ if (!is_null($events['events'])) {
 				$text = $event['message']['text'];
 				// Get replyToken
 				$replyToken = $event['replyToken'];
-				// Build message to reply back
-				if (strtoupper($text) == '#R') {
-					$action = [
-						'type': "uri",
-						'label': "เข้าสู่หน้าลงทะเบียน",
-						'uri': "https://www.google.co.th/webhp?sourceid=chrome-instant&rlz=1C1NHXL_enTH734TH735&ion=1&espv=2&ie=UTF-8#q=0873774278"
-					];
-					$template = [
-						'type': 'buttons',
-						'title': 'Menu',
-      						'text': "Please select",
-						'actions' => $action
-					];
-					$messages = [
-						'type' => 'template',
-						'altText' => 'กดลงทะเบียนเพื่อไปหน้าลงทะเบียน',
-						'template' => $template
-					]
-				} else {
+				// Build message to reply back				
 					$messages = [
 					  'type' => 'text',
 					  'text' => "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text
 					];
-				}
 			} elseif ($event['message']['type'] == 'sticker') {
 				$sticker = $event['message']['sticker'];
 				// Get replyToken
