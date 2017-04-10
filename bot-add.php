@@ -23,11 +23,11 @@ if (!is_null($events['events'])) {
 					  'template' => [ 
 						  	'type' => 'buttons',
 						  	'text' => 'ต้องการลงทะเบียนสินะ',
-						  	'actions' => {[
+						  	'actions' => [
 									'type' => 'uri',
 									'label' => 'ลงทะเบียน',
 									'uri': 'http://example.com/page/111'
-								]}
+								]
 					  		]
 					];
 				} else {
