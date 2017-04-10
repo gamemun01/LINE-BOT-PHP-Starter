@@ -15,11 +15,19 @@ if (!is_null($events['events'])) {
 				$text = $event['message']['text'];
 				// Get replyToken
 				$replyToken = $event['replyToken'];
-				// Build message to reply back				
+				// Build message to reply back	
+				if (strtoupper($text) == "#R"){
+					$messages = [
+					  'type' => 'text',
+					  'text' => "ต้องการลงทะเบียนสินะ"
+					];
+				} else {
 					$messages = [
 					  'type' => 'text',
 					  'text' => "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text
 					];
+				}
+				
 			} elseif ($event['message']['type'] == 'sticker') {
 				$sticker = $event['message']['sticker'];
 				// Get replyToken
