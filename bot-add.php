@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 				// Build message to reply back
 				$messages = [
 				  'type' => 'text',
-				  'text' => "Return message : ".$text
+				  'text' => $event['source']['userId']."Return message : ".$text
 				];
 			} elseif ($event['message']['type'] == 'sticker') {
 				$sticker = $event['message']['sticker'];
