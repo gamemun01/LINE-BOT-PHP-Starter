@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 				// Build message to reply back
 				$messages = [
 				  'type' => 'text',
-				  'text' => "รหัสผู้ใช้คือ".$event['source']['userId'].$event['message']['id']."Return message : ".$text
+				  'text' => "ควยพอใจยัง! รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text
 				];
 			} elseif ($event['message']['type'] == 'sticker') {
 				$sticker = $event['message']['sticker'];
