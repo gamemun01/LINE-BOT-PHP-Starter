@@ -20,15 +20,15 @@ if (!is_null($events['events'])) {
 					$messages = [
 						'type' => 'template',
 					    'altText'=> "this is a buttons template",
-						'template' => array(
+						'template' => [
 										'type' => 'buttons',
 										'text' => "สมัคร ?",
-										'action' => array(
+										'action' => [
 											'type' => "uri",
 											'label' => "สมัคร",
 											'uri' => "http://example.com/page/123"
-														)
-										)
+														]
+										]
 					  ];
 				} else {
 					$messages = [
