@@ -27,11 +27,6 @@ if (!is_null($events['events'])) {
 											'type' => "uri",
 											'label' => "สมัคร",
 											'uri' => "http://example.com/page/123"
-														),
-														array(
-											'type' => "uri",
-											'label' => "สอบถาม",
-											'uri' => "http://example.com/page/123"
 														)
 										)
 					  ];
