@@ -20,6 +20,7 @@ if (!is_null($events['events'])) {
 					$messages = [
 					  'type' => 'text',
 					  'text' => "สมัครคลิ้งก์"
+					  ];
 				} else {
 					$messages = [
 					  'type' => 'text',
