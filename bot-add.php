@@ -18,18 +18,8 @@ if (!is_null($events['events'])) {
 				// Build message to reply back	
 				if (strtoupper($text) == "#R"){
 					$messages = [
-					  'type' => 'template',
-					  'altText' => "ต้องการลงทะเบียนสินะ",
-					  'template' => [ 
-						  	'type' => 'buttons',
-						  	'text' => 'ต้องการลงทะเบียนสินะ',
-						  	'actions' => [
-									'type' => 'uri',
-									'label' => 'ลงทะเบียน',
-									'uri': 'http://example.com/page/111'
-								]
-					  		]
-					];
+					  'type' => 'text',
+					  'text' => "สมัครคลิ้งก์"
 				} else {
 					$messages = [
 					  'type' => 'text',
