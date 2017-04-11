@@ -23,7 +23,7 @@ if (!is_null($events['events'])) {
 						'template' => [
 										'type' => 'buttons',
 										'text' => "สมัคร ?",
-										'action' => ([
+										'action' => array([
 											'type' => "uri",
 											'label' => "สมัคร",
 											'uri' => "http://example.com/page/123"
