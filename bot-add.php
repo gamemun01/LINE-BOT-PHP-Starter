@@ -1,5 +1,5 @@
 <?php
-$access_token = 'qWlMPkW5K6I7qvOnt5LevdrH8/u7/tue/IgyEdU4+DwQGGYZz9EUC4I5WqKCCHlxa6jc3hSm/WeehniZKEVS99Vu9wh5kcV687TWucM2yr3mTAR7rqjD2uFbCzW+ionvCnqBcCicrSw5rCw0tPPdywdB04t89/1O/w1cDnyilFU=';
+$access_token = 'tSuz/4zK1UvDKJYWwiuEmV0Cm6sF5u7H7QrjUjMe47fF2WQ5aNJ0+A4M2vHbawsia6jc3hSm/WeehniZKEVS99Vu9wh5kcV687TWucM2yr2hjOjkwLSmuK4jdnTHmN+LehyiOvJeVVyRz15dAcYZdAdB04t89/1O/w1cDnyilFU=';
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -18,23 +18,9 @@ if (!is_null($events['events'])) {
 				// Build message to reply back	
 				if (strtoupper($text) == "#R"){
 					$messages = [
-						'type' => 'template',
-					    'altText'=> "this is a buttons template",
-						'template' => [
-										'type' => 'buttons',
-										'text' => "สมัคร ?",
-										'action' => array([
-											'type' => "uri",
-											'label' => "สมัคร",
-											'uri' => "http://example.com/page/123"
-														],
-														[
-											'type' => "uri",
-											'label' => "สมัคร",
-											'uri' => "http://example.com/page/123"
-														])
-										]
-					  ];
+					  'type' => 'text',
+					  'text' => "ต้องการสมัคร?"
+					];
 				} else {
 					$messages = [
 					  'type' => 'text',
