@@ -22,15 +22,17 @@ if (!is_null($events['events'])) {
 					  'text' => "ต้องการสมัคร?"
 					];
 				} else {
-					$messages = [
-					  'type' => 'text',
-						if ($event['source']['type'] == 'user')  {
-							'text' => "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text
+					$message = null;
+					if ($event['source']['type'] == 'user')  {
+							$message = "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text;
 						} else if ($event['source']['type'] == 'group') {
-							'text' => "รหัสกลุ่มคือ".$event['source']['groupId']."Return message : ".$text
+							$message = "รหัสกลุ่มคือ".$event['source']['groupId']."Return message : ".$text
 						} else {
-							'text' => "รหัสห้องคือ".$event['source']['roomId']."Return message : ".$text
+							$message = "รหัสห้องคือ".$event['source']['roomId']."Return message : ".$text
 						}
+					$messages = [
+						'type' => 'text',
+						'text' => $message
 					];
 				}
 				
