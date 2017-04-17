@@ -24,12 +24,12 @@ if (!is_null($events['events'])) {
 				} else {
 					$message = null;
 					if ($event['source']['type'] == 'user')  {
-							$message = "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text;
-						} else if ($event['source']['type'] == 'group') {
-							$message = "รหัสกลุ่มคือ".$event['source']['groupId']."Return message : ".$text
-						} else {
-							$message = "รหัสห้องคือ".$event['source']['roomId']."Return message : ".$text
-						}
+						$message = "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text;
+					} else if ($event['source']['type'] == 'group') {
+						$message = "รหัสกลุ่มคือ".$event['source']['groupId']."Return message : ".$text;
+					} else {
+						$message = "รหัสห้องคือ".$event['source']['roomId']."Return message : ".$text;
+					}
 					$messages = [
 						'type' => 'text',
 						'text' => $message
