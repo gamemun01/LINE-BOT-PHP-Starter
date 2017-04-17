@@ -24,7 +24,13 @@ if (!is_null($events['events'])) {
 				} else {
 					$messages = [
 					  'type' => 'text',
-					  'text' => "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text
+						if ($event['source']['type'] == 'user')  {
+							'text' => "รหัสผู้ใช้คือ".$event['source']['userId']."Return message : ".$text
+						} else if ($event['source']['type'] == 'group') {
+							'text' => "รหัสกลุ่มคือ".$event['source']['groupId']."Return message : ".$text
+						} else {
+							'text' => "รหัสห้องคือ".$event['source']['roomId']."Return message : ".$text
+						}
 					];
 				}
 				
